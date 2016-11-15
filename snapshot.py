@@ -59,7 +59,7 @@ def process_volume(args):
 	if response:
 		oldest_snapshot = None
 		latest_snapshot = None
-		script_inception = arrow.get(2016, 11, 01)
+		script_inception = arrow.get(2016, 11, 1)
 
 		# Loop over the snapshots and work out which is the oldest/latest
 		for snapshot in response["Snapshots"]:
