@@ -13,11 +13,11 @@ ec2_resource = boto3.resource("ec2")
 def create_snapshot(volume_name, volume_id):
 	"""
 	Creates a snapshot of the volume id we pass in.
-	This will also tag the snapsot with the volume's Name tag
+	This will also tag the snapshot with the volume's Name tag
 	contents.
 	"""
 
-	print "Will snapshot '%s' and tag itwith '%s'" % (volume_id, volume_name)
+	print "Will snapshot '%s' and tag it with '%s'" % (volume_id, volume_name)
 	response = ec2.create_snapshot(VolumeId=volume_id, Description=volume_name)
 	if response:
 		ec2.create_tags(Resources=[response["SnapshotId"]], Tags=[{"Key": "Name", "Value": volume_name}])
